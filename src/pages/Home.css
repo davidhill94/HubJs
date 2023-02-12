@@ -1,0 +1,41 @@
+.grid {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-areas: 'weather todo'
+    'news nothing';
+  }
+  
+  .top-left{
+    grid-area: weather;
+    background-color: #23b6dc;
+    width: 50vw;
+    height: 100%;
+  }
+  .top-right{
+    grid-area: todo;
+    background-color: #4FC5E3;
+    width: 50vw;
+    height: 100%;
+  }
+  .bottom-left{
+    grid-area: news;
+    background-color: #d6f1f8;
+    width: 50vw;
+    height: 100%;
+  }
+  .bottom-right{
+    grid-area: nothing;
+    background-color: #70CFE7;
+    width: 50vw;
+    height: 100%;
+  }
+  .centerDiv {
+    width: 25%;
+    height: 25%;
+    background-color: lightgray;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
