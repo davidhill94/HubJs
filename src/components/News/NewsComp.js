@@ -1,41 +1,47 @@
 import React from 'react';
-import './NewsStyling.css';
+import { ArticleTitle, ButtonText, ErrorMessage, LoadingText, NewsContainer, NewsInnerContainer, NewsModal, NewsModalWrapper, NoResultText, ResultsDiv, SearchInput, SearchSubmit, SetAutoButton } from './NewsStyles.js';
 
-export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAutoTopic }) => {
+export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAutoTopic, handleModal, newsModal, open, hover }) => {
+
     return (
-        <div className='news_container'>
-            <input
+        <NewsContainer open={open} hover={hover} newsModal={newsModal}>
+            <ButtonText hover={hover}>News</ButtonText>
+            <NewsModal>
+                <NewsModalWrapper newsModal={newsModal}>
+                <SearchInput
                 type="text"
                 onChange={e => setTopic(e.target.value)}
                 placeholder="Search News"
                 onKeyPress={(e) => { if (e.key === "Enter") { searchTopic() } }}
-            ></input>
-            <button
+            ></SearchInput>
+            <SearchSubmit
                 type="submit"
                 onClick={searchTopic}>
                 Search
-            </button>
-            <button
+            </SearchSubmit>
+            <SetAutoButton
             onClick={handleAutoTopic}>
                 Set as Auto
-            </button>
-            <div>
+            </SetAutoButton>
+            <NewsInnerContainer>
                 {loading ?
-                <h3>Loading...</h3>
+                <LoadingText>Loading...</LoadingText>
                 :
                 error ?
-                <h3>We ran into an error.. Please search something else.</h3>
+                <ErrorMessage>We ran into an error.. Please search something else.</ErrorMessage>
                 :
                 news.totalResults > 0 ?
-                    <div>
-                        <h2>{news.totalResults > 0 ? news.articles[0].title : null}</h2>
-                        <h2>{news.totalResults > 1 ? news.articles[1].title : null}</h2>
-                        <h2>{news.totalResults > 2 ? news.articles[2].title : null}</h2>
-                    </div>
+                    <ResultsDiv>
+                        <ArticleTitle>{news.totalResults > 0 ? news.articles[0].title : null}</ArticleTitle>
+                        <ArticleTitle>{news.totalResults > 1 ? news.articles[1].title : null}</ArticleTitle>
+                        <ArticleTitle>{news.totalResults > 2 ? news.articles[2].title : null}</ArticleTitle>
+                    </ResultsDiv>
                     :
-                    <h3>Oops..Nothing Found..Search something else!</h3>
+                    <NoResultText>Oops..Nothing Found..Search something else!</NoResultText>
                 }
-        </div>
-            </div>
+        </NewsInnerContainer>
+                </NewsModalWrapper>
+            </NewsModal>
+            </NewsContainer>
     )
 }

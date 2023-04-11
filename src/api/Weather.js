@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { WeatherComp } from '../components/Weather/WeatherComp';
 
-export const Weather = () => {
+export const Weather = ({handleModal, weatherModal, hover, open}) => {
 
     const [weather, setWeather] = useState({});
     const [autoLocation, setAutoLocation] = useState("");
@@ -10,7 +10,9 @@ export const Weather = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=aa0beaf9011ae12f834be6fc2619965b`
+    const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
+
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${weatherAPIKey}`
 
     const searchLocation = async () => {
         if(location === ""){
@@ -54,6 +56,6 @@ export const Weather = () => {
     }, [autoLocation])
 
   return (
-    <WeatherComp location={location} weather={weather} setLocation={setLocation} searchLocation={searchLocation} handleAutoLocation={handleAutoLocation} loading={loading} error={error} autoLocation={autoLocation} />
+    <WeatherComp location={location} weather={weather} setLocation={setLocation} searchLocation={searchLocation} handleAutoLocation={handleAutoLocation} loading={loading} error={error} autoLocation={autoLocation} handleModal={handleModal} weatherModal={weatherModal} hover={hover} open={open}/>
   )
 }

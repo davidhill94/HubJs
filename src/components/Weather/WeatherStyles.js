@@ -3,20 +3,68 @@ import styled from 'styled-components';
 /* WEATHERCOMP.JS */
 
 export const WeatherContainer = styled.div`
-    background-color: #23b6dc;
-    padding: 1rem;
-    display: grid;
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+font-family: var(--font-primary);
+background: rgb(192,241,255);
+background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-moz-linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
+background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-webkit-linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
+background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%);" : "linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0f1ff",endColorstr="#70ddfe",GradientType=1);
+`
+
+export const WeatherModal = styled.div`
+display: flex;
+width: 100vw;
+height: 100vh;
+z-index: 99;
+position: absolute;
+top: ${(props) => (props.weatherModal ? "0" : "100vh")};
+left: ${(props) => (props.weatherModal ? "0" : "-100vw")};
+transition: all 1s ease;
+background: rgb(192,241,255);
+background: ${(props) => (props.hover ? "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")};
+background: ${(props) => (props.hover ? "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")};
+background: ${(props) => (props.hover ? "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%);" : "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")}
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0f1ff",endColorstr="#70ddfe",GradientType=1);
+`
+
+export const ButtonWrapper = styled.div`
+display: flex;
+width: 100%;
+height: 100%;
+position: relative;
+align-items: center;
+justify-content: center;
+`
+
+export const ButtonText = styled.h2`
+position: absolute;
+bottom: 5%;
+right: 50%;
+transform: translateX(50%);
+font-size: 2rem;
+opacity: ${(props) => (props.hover === "weather" ? "1" : "0")};
+transition: all 0.1s ease;
+`
+
+export const WeatherInnerWrapper = styled.div`
+display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 20% 40% 20% 20%;
     grid-template-areas: "search search date"
     "temp current alt"
     "sun sun sun"
     "name name name";
-    width: 100%;
-    height: 50vh;
+    width: 100vw;
+height: 100vh;
     font-family: var(--font-primary);
-    position: relative;
     grid-gap: 0.1rem;
+    padding: 6rem;
 `
 
 /** SEARCH.JS **/
@@ -153,4 +201,3 @@ export const AltRowH2 = styled.h2`
 export const AltIcon = styled.p`
     font-size: 1.5rem;
 `
-

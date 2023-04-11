@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { FaRegListAlt } from 'react-icons/fa';
 import { ToDoForm } from './ToDoForm';
 import { ToDoList } from './ToDoList';
-import './ToDoStyling.css';
+import './ToDoStyles.js';
+import { ButtonText, TodoButton, TodoContainer, TodoInnerWrapper, TodoModal } from './ToDoStyles.js';
 
-export const ToDo = () => {
+export const ToDo = ({toDoModal, handleModal, hover, open}) => {
 
   //state
-    const [inputText, setInputText] = useState("");
-    const [todos, setTodos] = useState([]);
-    const [filter, setFilter] = useState("all");
-    const [filteredTodos, setFilteredTodos] = useState([]);
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   //functions
   const filterHandler = () => {
-    switch (filter){
+    switch (filter) {
       case "completed":
         setFilteredTodos(todos.filter(todo => todo.completed === true))
         break;
@@ -28,11 +30,11 @@ export const ToDo = () => {
 
   //Local Storage
   const saveTodos = () => {
-      localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 
   const getTodos = () => {
-    if(localStorage.getItem("todos") === null){
+    if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
     } else {
       let localTodo = JSON.parse(localStorage.getItem("todos"));
@@ -42,7 +44,7 @@ export const ToDo = () => {
 
   //UseEffect
   useEffect(() => {
-getTodos()
+    getTodos()
   }, [])
 
   useEffect(() => {
@@ -53,20 +55,26 @@ getTodos()
 
 
   return (
-    <div className='todo_container'>
-    <h1>LIST</h1>
-    <ToDoForm 
-    todos={todos} 
-    setTodos={setTodos} 
-    setInputText={setInputText} 
-    inputText={inputText}
-    setFilter={setFilter}
-    />
-    <ToDoList 
-    todos={todos} 
-    setTodos={setTodos}
-    filteredTodos={filteredTodos}
-    />
-    </div>
+    <TodoContainer hover={hover} open={open} toDoModal={toDoModal}>
+      <ButtonText hover={hover}>To Do</ButtonText>
+      <TodoButton onClick={() => handleModal("todo")}><FaRegListAlt /></TodoButton>
+      <TodoModal>
+        <TodoInnerWrapper toDoModal={toDoModal}>
+          <h1>LIST</h1>
+          <ToDoForm
+            todos={todos}
+            setTodos={setTodos}
+            setInputText={setInputText}
+            inputText={inputText}
+            setFilter={setFilter}
+          />
+          <ToDoList
+            todos={todos}
+            setTodos={setTodos}
+            filteredTodos={filteredTodos}
+          />
+        </TodoInnerWrapper>
+      </TodoModal>
+    </TodoContainer>
   )
 }

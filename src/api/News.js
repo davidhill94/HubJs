@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { NewsComp } from '../components/News/NewsComp';
 
-export const News = () => {
+export const News = ({handleModal, newsModal, open, hover}) => {
   const [news, setNews] = useState([]);
   const [topic, setTopic] = useState("");
   const [autoTopic, setAutoTopic] = useState("")
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const newsURL = `https://newsapi.org/v2/everything?q=${topic}&language=en&apiKey=3498ee7d513c47d4a80035106052860e`
+  const NewsAPIKey = process.env.REACT_APP_NEWS_API_KEY;
+
+  const newsURL = `https://newsapi.org/v2/everything?q=${topic}&language=en&apiKey=${NewsAPIKey}`
 
 
   const searchTopic = async () => {
@@ -52,6 +54,6 @@ export const News = () => {
   }, [autoTopic])
 
   return (
-    <NewsComp news={news} topic={topic} setTopic={setTopic} searchTopic={searchTopic} loading={loading} handleAutoTopic={handleAutoTopic} error={error}/>
+    <NewsComp news={news} topic={topic} setTopic={setTopic} searchTopic={searchTopic} loading={loading} handleAutoTopic={handleAutoTopic} error={error} handleModal={handleModal} newsModal={newsModal} open={open} hover={hover}/>
   )
 }

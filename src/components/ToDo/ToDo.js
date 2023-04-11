@@ -1,5 +1,5 @@
 import React from 'react';
-import './ToDoStyling.css';
+import { TodoItem, TodoItemCompleted } from './ToDoStyles.js';
 
 export const ToDo = ({ text, todo, todos, setTodos }) => {
 
@@ -20,7 +20,11 @@ export const ToDo = ({ text, todo, todos, setTodos }) => {
 
   return (
     <div>
-        <li className={`todo_item ${todo.completed ? "completed" : ""}`}>{text}</li>
+        {todo.completed ?
+        <TodoItemCompleted>{text}</TodoItemCompleted>
+        :
+        <TodoItem>{text}</TodoItem>
+    }
         <button onClick={handleComplete}>Complete</button>
         <button onClick={handleDelete}>Delete</button>
     </div>

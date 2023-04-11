@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   PracticeContainer,
-  PracticeButton,
-  PracticeModal
+  PracticeModal,
+  ButtonWrapper,
+  ButtonText
 } from './PracticeStyles.js';
-import {FaCloudSun} from 'react-icons/fa';
 
-export const Practice = () => {
-const [open, setOpen] = useState(false);
+export const Practice = ({handleModal, practiceModal, hover, open}) => {
 
-const handleOpen = () => {
-    setOpen(!open);
-    console.log(open)
-}
   return (
-    <PracticeContainer open={open}>
-      <PracticeButton onClick={handleOpen}><FaCloudSun /></PracticeButton>
-      <PracticeModal open={open} />
+    <PracticeContainer hover={hover} open={open} practiceModal={practiceModal}>
+      <ButtonWrapper>
+      <ButtonText hover={hover}>Practice</ButtonText>
+      </ButtonWrapper>
+      <PracticeModal/>
     </PracticeContainer>
   )
 }

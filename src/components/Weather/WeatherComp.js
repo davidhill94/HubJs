@@ -7,8 +7,9 @@ import { Current } from './Current';
 import { LocationName } from './LocationName';
 import { Search } from './Search';
 import { LocationDate } from './LocationDate';
+import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal } from './WeatherStyles.js';
+export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open }) => {
 
-export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation }) => {
 
   const convertTime = (time) => {
     const timestamp = time;
@@ -30,8 +31,13 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
   }
 
   return (
-    <WeatherComp>
-      <Search setLocation={setLocation} handleAutoLocation={handleAutoLocation} searchLocation={searchLocation} />
+    <WeatherContainer hover={hover} open={open} weatherModal={weatherModal}>
+      <ButtonWrapper>
+      <ButtonText hover={hover}>Weather</ButtonText>
+      </ButtonWrapper>
+      <WeatherModal>
+        <WeatherInnerWrapper>
+        <Search setLocation={setLocation} handleAutoLocation={handleAutoLocation} searchLocation={searchLocation} />
       {loading ?
         <h3>Loading...</h3>
         :
@@ -39,14 +45,16 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
           <h3>We are unable to find this location.. Please search again!</h3>
           :
           <>
-          <LocationDate weather={weather} convertDate={convertDate} />
-          <Temperature weather={weather} />
-          <Current weather={weather} />
-          <AltDetails weather={weather} />
-          <Sys weather={weather} convertTime={convertTime} />
-          <LocationName weather={weather} autoLocation={autoLocation} />
+          <LocationDate weatherModal={weatherModal} weather={weather} convertDate={convertDate} />
+          <Temperature weatherModal={weatherModal} weather={weather} />
+          <Current weatherModal={weatherModal} weather={weather} />
+          <AltDetails weatherModal={weatherModal} weather={weather} />
+          <Sys weatherModal={weatherModal} weather={weather} convertTime={convertTime} />
+          <LocationName weatherModal={weatherModal} weather={weather} autoLocation={autoLocation} />
             </>
       }
-    </WeatherComp>
+        </WeatherInnerWrapper>
+      </WeatherModal>
+    </WeatherContainer>
   )
 }
