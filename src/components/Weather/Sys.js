@@ -1,13 +1,23 @@
 import React from 'react';
 import './WeatherStyles.js';
-import { WeatherSys } from './WeatherStyles.js';
+import { WeatherSys, SysRow, SysItem, SysLine, SysText, SysIconSunrise, SysIconSunset } from './WeatherStyles.js';
 
 export const Sys = ({ weather, convertTime }) => {
 
   return (
     <WeatherSys>
-        {weather.sys ? <h2>Sunrise: {convertTime(weather.sys.sunrise)}</h2> : null}
-              {weather.sys ? <h2>Sunset: {convertTime(weather.sys.sunset)}</h2> : null}
+      <SysRow>
+        {weather.sys ?
+          <SysItem>
+            <SysIconSunrise />
+            <SysText>{convertTime(weather.sys.sunrise)}</SysText>
+            </SysItem> : null}
+          <SysLine></SysLine>
+        {weather.sys ? 
+        <SysItem><SysIconSunset /> 
+        <SysText>{convertTime(weather.sys.sunset)}</SysText>
+        </SysItem> : null}
+      </SysRow>
     </WeatherSys>
   )
 }

@@ -8,23 +8,40 @@ transform: ${(props) => (props.open ? null : "translate(-50%, -50%)")};
 font-size: ${(props) => (props.open ? "3rem" : "10rem")};
 z-index: 100;
 background-color: transparent;
+padding: 0.50rem;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
+border-radius: 50%;
 cursor: pointer;
-transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
-color: ${(props) => (props.hover === "news" ? "white" : "lightgrey")};
+z-index: 99;
+transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s, width 1s, height 1s;
+
+&:hover{
+    color: var(--theme-secondary);
+}
 `
 export const ToDoButton = styled.button`
 position: absolute;
 top: ${(props) => (props.open ? "2vh" : "25%")};
 right: ${(props) => (props.open ? "2vw" : "25%")};
 transform: ${(props) => (props.open ? null : "translate(50%, -50%)")};
-font-size: ${(props) => (props.open ? "3rem" : "10rem")};
+font-size: ${(props) => (props.open ? "3rem" : "8rem")};
 z-index: 100;
 background-color: transparent;
+padding: 0.50rem;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
+border-radius: 50%;
 cursor: pointer;
-transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
-color: ${(props) => (props.hover === "todo" ? "white" : "lightgrey")};
+transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s, width 1s, height 1s;
+
+&:hover {
+    color: var(--theme-secondary);
+}
 `
 export const WeatherButton = styled.button`
 position: absolute;
@@ -34,10 +51,18 @@ transform: ${(props) => (props.open ? null : "translate(-50%, 50%)")};
 font-size: ${(props) => (props.open ? "3rem" : "10rem")};
 z-index: 100;
 background-color: transparent;
+padding: 0.50rem;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
+border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
-color: ${(props) => (props.hover === "weather" ? "yellow" : "lightgrey")};
+
+&:hover{
+    color: var(--theme-secondary);
+}
 `
 export const PracticeButton = styled.button`
 position: absolute;
@@ -47,8 +72,16 @@ transform: ${(props) => (props.open ? null : "translate(50%, 50%)")};
 font-size: ${(props) => (props.open ? "3rem" : "10rem")};
 z-index: 100;
 background-color: transparent;
+padding: 0.50rem;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
+border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
-color: ${(props) => (props.hover === "practice" ? "white" : "lightgrey")};
+
+&:hover {
+    color: var(--theme-secondary);
+}
 `

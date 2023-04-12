@@ -9,7 +9,7 @@ export const Temperature = ({ weather }) => {
         {weather.main ? <TemperatureH2>{weather.main.temp.toFixed()}°C</TemperatureH2> : null}
         <TempHighLow>
         {weather.main ? <TempItem><FaAngleDoubleDown /><TemperatureH4>{weather.main.temp_min.toFixed()}°C</TemperatureH4></TempItem> : null}
-              {weather.main ? <TempItem><TemperatureH4>{weather.main.temp_max.toFixed()}°C</TemperatureH4><FaAngleDoubleUp /></TempItem> : null}
+              {weather.main ? <TempItem><FaAngleDoubleUp /><TemperatureH4>{weather.main.temp_max.toFixed()}°C</TemperatureH4></TempItem> : null}
         </TempHighLow>
     </TemperatureWrapper>
   )

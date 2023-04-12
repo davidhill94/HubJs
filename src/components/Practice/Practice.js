@@ -11,7 +11,7 @@ export const Practice = ({handleModal, practiceModal, hover, open}) => {
   return (
     <PracticeContainer hover={hover} open={open} practiceModal={practiceModal}>
       <ButtonWrapper>
-      <ButtonText hover={hover}>Practice</ButtonText>
+      <ButtonText practiceModal={practiceModal} hover={hover}>Practice</ButtonText>
       </ButtonWrapper>
       <PracticeModal/>
     </PracticeContainer>

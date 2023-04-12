@@ -1,12 +1,12 @@
 import React from 'react';
-import { ArticleTitle, ButtonText, ErrorMessage, LoadingText, NewsContainer, NewsInnerContainer, NewsModal, NewsModalWrapper, NoResultText, ResultsDiv, SearchInput, SearchSubmit, SetAutoButton } from './NewsStyles.js';
+import { ArticleTitle, ButtonText, ErrorMessage, LoadingText, NewsContainer, NewsInnerContainer, NewsModal, NewsModalWrapper, NoResultText, ResultsDiv, SearchInput, SearchSubmit, SetAutoButton} from './NewsStyles.js';
 
 export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAutoTopic, handleModal, newsModal, open, hover }) => {
 
     return (
         <NewsContainer open={open} hover={hover} newsModal={newsModal}>
-            <ButtonText hover={hover}>News</ButtonText>
-            <NewsModal>
+            <ButtonText newsModal={newsModal} hover={hover}>News</ButtonText>
+            <NewsModal newsModal={newsModal}>
                 <NewsModalWrapper newsModal={newsModal}>
                 <SearchInput
                 type="text"

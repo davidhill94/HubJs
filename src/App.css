@@ -2,8 +2,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  --theme-primary: #000;
-  --theme-secondary: #fff;
+  --theme-primary: #bae0dc;
+  --theme-secondary: #e8d3c9;
   --theme-tertiary: #0ad;
   --font-primary: 'Ubuntu', sans-serif;
 }

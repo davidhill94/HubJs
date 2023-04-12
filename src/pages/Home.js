@@ -5,6 +5,7 @@ import { ToDo } from '../components/ToDo/ToDoIndex';
 import { Practice } from '../components/Practice/Practice';
 import { ModalButtons } from '../components/ModalButtons';
 import { BottomLeft, BottomRight, CenterDiv, Grid, TopLeft, TopRight } from './HomeStyles';
+import { Welcome } from '../components/Welcome/Welcome';
 
 export const Home = () => {
   const [newsModal, setNewsModal] = useState(false);
@@ -99,7 +100,9 @@ export const Home = () => {
           open={open}
         ></Practice>
       </BottomRight>
-      <CenterDiv open={open}></CenterDiv>
+      <CenterDiv open={open}>
+        <Welcome />
+      </CenterDiv>
       <ModalButtons
         handleModal={handleModal}
         open={open}

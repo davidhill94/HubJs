@@ -1,4 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const delayLoad = keyframes`
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+`
 
 export const NewsContainer = styled.div`
 width: 100%;
@@ -8,10 +14,7 @@ align-items: center;
 justify-content: center;
 background: rgb(192,241,255);
 font-family: var(--font-primary);
-background: ${(props) => (props.hover === "news" || props.newsModal & props.open ? "-moz-linear-gradient(to right, #654ea3, #eaafc8)" : "-moz-linear-gradient(315deg, #2C5364, #203A43, #0F2027)")};
-background: ${(props) => (props.hover === "news" || props.newsModal & props.open ? "-webkit-linear-gradient(to right, #654ea3, #eaafc8)" : "-webkit-linear-gradient(315deg, #2C5364, #203A43, #0F2027)")};
-background: ${(props) => (props.hover === "news" || props.newsModal & props.open ? "linear-gradient(to right, #654ea3, #eaafc8);" : "linear-gradient(315deg, #2C5364, #203A43, #0F2027)")};
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0f1ff",endColorstr="#70ddfe",GradientType=1);
+background: transparent;
 `
 
 export const ButtonText = styled.h2`
@@ -20,19 +23,18 @@ bottom: 5%;
 right: 50%;
 transform: translateX(50%);
 font-size: 2rem;
-opacity: ${(props) => (props.hover === "news" ? "1" : "0")};
+opacity: ${(props) => (props.hover === "news" && props.newsModal === false ? "1" : "0")};
 transition: all 0.1s ease;
 `
 
 export const NewsModal = styled.div`
-display: flex;
+display: ${(props) => (props.newsModal ? "flex" : "none")};
 width: 100vw;
 height: 100vh;
-background-color: pink;
+background-color: transparent;
 z-index: 99;
-position: absolute;
-bottom: ${(props) => (props.newsModal ? "0" : "100vh")};
-left: ${(props) => (props.newsModal ? "0" : "-100vw")};
+animation-name: ${delayLoad};
+animation-duration: 1s;
 transition: all 2s ease;
 padding: 6rem;
 `

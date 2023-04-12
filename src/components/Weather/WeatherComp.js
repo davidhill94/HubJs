@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './WeatherStyles.js';
 import { Sys } from './Sys';
 import { AltDetails } from './AltDetails';
@@ -8,8 +8,11 @@ import { LocationName } from './LocationName';
 import { Search } from './Search';
 import { LocationDate } from './LocationDate';
 import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal } from './WeatherStyles.js';
+import { WeatherVideos } from './WeatherVideos.js';
+
 export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open }) => {
 
+  const [light, setLight] = useState(false);
 
   const convertTime = (time) => {
     const timestamp = time;
@@ -29,13 +32,13 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
 
     return day.toDateString();
   }
-
+  
   return (
     <WeatherContainer hover={hover} open={open} weatherModal={weatherModal}>
       <ButtonWrapper>
-      <ButtonText hover={hover}>Weather</ButtonText>
+      <ButtonText weatherModal={weatherModal} hover={hover}>Weather</ButtonText>
       </ButtonWrapper>
-      <WeatherModal>
+      <WeatherModal light={light} weatherModal={weatherModal}>
         <WeatherInnerWrapper>
         <Search setLocation={setLocation} handleAutoLocation={handleAutoLocation} searchLocation={searchLocation} />
       {loading ?

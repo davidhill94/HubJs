@@ -1,4 +1,12 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { WiSunrise, WiSunset } from 'react-icons/wi';
+import weatherBackground from '../../images/weatherBackground.png';
+
+const delayLoad = keyframes`
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+`
 
 /* WEATHERCOMP.JS */
 
@@ -10,27 +18,34 @@ align-items: center;
 justify-content: center;
 overflow: hidden;
 font-family: var(--font-primary);
-background: rgb(192,241,255);
-background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-moz-linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
-background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-webkit-linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
-background: ${(props) => (props.hover === "weather" || props.weatherModal & props.open ? "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%);" : "linear-gradient(225deg, #2C5364, #203A43, #0F2027)")};
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0f1ff",endColorstr="#70ddfe",GradientType=1);
+position: relative;
+background-image: ${(props) => (props.weatherModal ? `url(${weatherBackground})` : null)};
+background-size: cover;
+background-repeat: no-repeat;
+opacity: ${(props) => (props.weatherModal ? "1" : "0")};
+transition: all 2s ease-in-out;
+`
+
+export const WeatherVideo = styled.video`
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+object-fit: cover;
+display: ${(props) => (props.weatherModal ? "block" : "none")};
 `
 
 export const WeatherModal = styled.div`
-display: flex;
-width: 100vw;
+display: ${(props) => (props.weatherModal ? "flex" : "none")};
 height: 100vh;
+width: 100vw;
 z-index: 99;
-position: absolute;
-top: ${(props) => (props.weatherModal ? "0" : "100vh")};
-left: ${(props) => (props.weatherModal ? "0" : "-100vw")};
 transition: all 1s ease;
-background: rgb(192,241,255);
-background: ${(props) => (props.hover ? "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-moz-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")};
-background: ${(props) => (props.hover ? "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)" : "-webkit-linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")};
-background: ${(props) => (props.hover ? "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%);" : "linear-gradient(225deg, rgba(192,241,255,1) 0%, rgba(112,221,254,1) 100%)")}
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0f1ff",endColorstr="#70ddfe",GradientType=1);
+animation-name: ${delayLoad};
+animation-duration: 1s;
+background-color: transparent;
+color: ${(props) => (props.light ? "white" : "black")};
 `
 
 export const ButtonWrapper = styled.div`
@@ -48,7 +63,7 @@ bottom: 5%;
 right: 50%;
 transform: translateX(50%);
 font-size: 2rem;
-opacity: ${(props) => (props.hover === "weather" ? "1" : "0")};
+opacity: ${(props) => (props.hover === "weather" && props.weatherModal === false ? "1" : "0")};
 transition: all 0.1s ease;
 `
 
@@ -72,17 +87,19 @@ export const WeatherSearchWrapper = styled.div`
     grid-area: search;
     width: 100%;
     height: 100%;
-    background-color: beige;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 `
 export const WeatherSearchInput = styled.input`
-    padding: 0.25rem;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    width: 75%;
 `
 export const WeatherSearchSubmit = styled.button`
-    padding: 0.25rem;
+    padding: 0.75rem;
     margin: 0 0.25rem;
+    font-size: 1.25rem;
     cursor: pointer;
 `
 export const WeatherSearchHome = styled.button`
@@ -91,7 +108,7 @@ export const WeatherSearchHome = styled.button`
     border: none;
     margin: 0 0.25rem;
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
 `
 
 /** LOCATIONDATE.JS **/
@@ -102,10 +119,9 @@ export const LocationDateWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: beige;
 `
 export const LocationDateText = styled.h2`
-    font-size: 1rem;
+    font-size: 1.25rem;
 `
 
 /** TEMPERATURE.JS **/
@@ -113,22 +129,22 @@ export const TemperatureWrapper = styled.div`
     grid-area: temp;
     width: 100%;
     height: 100%;
-    background-color: beige;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 `
 export const TemperatureH2 = styled.h2`
-    font-size: 2rem;
+    font-size: 6.75rem;
 `
 export const TemperatureH4 = styled.h4`
-font-size: 1rem;
+font-size: 1.75rem;
+margin-right: 3.5rem;
 `
 export const TempHighLow = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     width: 100%;
     padding: 0 1rem;
 `
@@ -139,22 +155,25 @@ export const TempItem = styled.div`
 `
 
 /** LOCATIONNAME.JS **/
-export const LocationName = styled.div`
+export const LocationNameDiv = styled.div`
     grid-area: name;
     width: 100%;
     height: 100%;
-    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+`
+export const LocationNameRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 `
-export const LocationNameRow =styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const LocationNameText = styled.div`
+    font-size: 4.75rem;
 `
 export const HomeIcon = styled.p`
-    margin: -0.25rem;
+    font-size: 1.75rem;
+    margin-top: 2.15rem;
 `
 
 /** SYS.JS **/
@@ -162,10 +181,38 @@ export const WeatherSys = styled.div`
     grid-area: sun;
     width: 100%;
     height: 100%;
-    background-color: beige;
     display: flex;
     align-items: center;
     justify-content: center;
+`
+export const SysRow = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+`
+export const SysItem = styled.div`
+display: inline-flex;
+align-items: center;
+justify-content: center;
+line-height: 4rem;
+`
+export const SysIconSunrise = styled(WiSunrise)`
+font-size: 2.50rem;
+display: block;
+`
+export const SysIconSunset = styled(WiSunset)`
+font-size: 2.50rem;;
+display: block;
+`
+export const SysText = styled.p`
+font-size: 1.75rem;
+`
+export const SysLine = styled.p`
+width: 90%;
+height: 0.15rem;
+margin-top: 0.25rem;
+background-color: #000;
 `
 
 /** CURRENT.JS **/
@@ -173,10 +220,16 @@ export const WeatherCurrent = styled.div`
     grid-area: current;
     width: 100%;
     height: 100%;
-    background-color: beige;
     display: flex;
     align-items: center;
     justify-content: center;
+`
+export const WeatherCurrentText = styled.h1`
+font-size: 2.75rem;
+`
+export const WeatherCurrentImg = styled.img`
+height: auto;
+width: 12.75rem;
 `
 
 /** ALT.JS **/
@@ -184,20 +237,25 @@ export const AltDetailsWrapper = styled.div`
     grid-area: alt;
     width: 100%;
     height: 100%;
-    background-color: beige;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 `
+export const Row = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+`
 export const AltRow = styled.div`
     display: flex;
+    width: 10rem;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 `
 export const AltRowH2 = styled.h2`
-    font-size: 1rem;
+    font-size: 1.25rem;
 `
 export const AltIcon = styled.p`
-    font-size: 1.5rem;
+    font-size: 3.75rem;
 `

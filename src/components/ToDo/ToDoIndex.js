@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaRegListAlt } from 'react-icons/fa';
 import { ToDoForm } from './ToDoForm';
 import { ToDoList } from './ToDoList';
 import './ToDoStyles.js';
-import { ButtonText, TodoButton, TodoContainer, TodoInnerWrapper, TodoModal } from './ToDoStyles.js';
+import { ButtonText, TodoContainer, TodoInnerWrapper, TodoModal } from './ToDoStyles.js';
 
 export const ToDo = ({toDoModal, handleModal, hover, open}) => {
 
@@ -56,8 +55,7 @@ export const ToDo = ({toDoModal, handleModal, hover, open}) => {
 
   return (
     <TodoContainer hover={hover} open={open} toDoModal={toDoModal}>
-      <ButtonText hover={hover}>To Do</ButtonText>
-      <TodoButton onClick={() => handleModal("todo")}><FaRegListAlt /></TodoButton>
+      <ButtonText toDoModal={toDoModal} hover={hover}>To Do</ButtonText>
       <TodoModal>
         <TodoInnerWrapper toDoModal={toDoModal}>
           <h1>LIST</h1>

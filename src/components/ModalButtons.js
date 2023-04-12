@@ -6,28 +6,30 @@ export const ModalButtons = ({handleModal, open, newsModal, toDoModal, weatherMo
 
   return (
     <div>
-        <NewsButton hover={hover} onMouseEnter={() => handleHover("news")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("news")}>
+        <NewsButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("news")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("news")}>
           {open & newsModal ?
           <FaHome />
           :
-          <FaRegNewspaper />
+          <FaRegNewspaper /> 
           }
           </NewsButton>
-        <ToDoButton hover={hover} onMouseEnter={() => handleHover("todo")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("todo")}>
+        <ToDoButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("todo")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("todo")}>
           {open & toDoModal ?
           <FaHome />
           :
+          <>
           <FaRegListAlt />
+          </>
           }
           </ToDoButton>
-        <WeatherButton hover={hover} onMouseEnter={() => handleHover("weather")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("weather")}>
+        <WeatherButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("weather")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("weather")}>
         {open & weatherModal ?
           <FaHome />
           :
           <FaCloudSun />
           }
           </WeatherButton>
-        <PracticeButton hover={hover} onMouseEnter={() => handleHover("practice")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("practice")}>
+        <PracticeButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("practice")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("practice")}>
         {open & practiceModal ?
           <FaHome />
           :

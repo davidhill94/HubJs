@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import background from '../images/background.png';
+import background2 from '../images/background2.png';
+import background3 from '../images/background3.png';
 
 export const Grid = styled.div`
     display: flex;
@@ -7,6 +10,9 @@ export const Grid = styled.div`
     width: 100%;
     position: relative;
     overflow: hidden;
+    background-image: url(${background3});
+    background-size: cover;
+    background-repeat: no-repeat;
   `
 
 export const TopLeft = styled.div`
@@ -40,11 +46,12 @@ export const BottomRight = styled.div`
     position: absolute;
     bottom: 0;
     right: 0;
+
   `
 export const CenterDiv = styled.div`
     width: 25%;
     height: 25%;
-    background-color: lightgray;
+    background-color: transparent;
     position: absolute;
     left: 50%;
     top: 50%;
