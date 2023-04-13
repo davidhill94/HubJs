@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const WelcomeContainer = styled.div`
-width: 100%;
-height: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
 font-family: var(--font-primary);
+color: var(--theme-tertiary);
 `
 
 //WELCOMETIME.JS
@@ -20,6 +19,7 @@ justify-content: center;
 export const WelcomeHeader = styled.h1`
 font-size: 3rem;
 font-family: var(--font-primary);
+white-space: nowrap;
 `
 export const WelcomeInfo = styled.div`
 display: flex;

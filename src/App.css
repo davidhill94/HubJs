@@ -4,6 +4,7 @@
   padding: 0;
   --theme-primary: #bae0dc;
   --theme-secondary: #e8d3c9;
-  --theme-tertiary: #0ad;
+  --theme-tertiary: #1F4743;
+  --button-hover: #472b1f;
   --font-primary: 'Ubuntu', sans-serif;
 }

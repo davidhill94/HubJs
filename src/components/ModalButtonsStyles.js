@@ -16,11 +16,8 @@ border: none;
 border-radius: 50%;
 cursor: pointer;
 z-index: 99;
-transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s, width 1s, height 1s;
-
-&:hover{
-    color: var(--theme-secondary);
-}
+transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
+color: var(--theme-tertiary);
 `
 export const ToDoButton = styled.button`
 position: absolute;
@@ -37,11 +34,8 @@ justify-content: center;
 border: none;
 border-radius: 50%;
 cursor: pointer;
-transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s, width 1s, height 1s;
-
-&:hover {
-    color: var(--theme-secondary);
-}
+transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
+color: var(--theme-tertiary);
 `
 export const WeatherButton = styled.button`
 position: absolute;
@@ -59,10 +53,7 @@ border: none;
 border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
-
-&:hover{
-    color: var(--theme-secondary);
-}
+color: var(--theme-tertiary);
 `
 export const PracticeButton = styled.button`
 position: absolute;
@@ -80,8 +71,5 @@ border: none;
 border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
-
-&:hover {
-    color: var(--theme-secondary);
-}
+color: var(--theme-tertiary);
 `

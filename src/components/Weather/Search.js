@@ -20,8 +20,9 @@ export const Search = ({ searchLocation, setLocation, handleAutoLocation }) => {
                 Enter
             </WeatherSearchSubmit>
             <WeatherSearchHome
+                aria-label="Set as Home"
                 onClick={handleAutoLocation}>
-                <FaHome className='home_icon'/>
+                <FaHome className='home_icon' />
             </WeatherSearchHome>
         </WeatherSearchWrapper>
     )

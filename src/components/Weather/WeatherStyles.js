@@ -19,11 +19,6 @@ justify-content: center;
 overflow: hidden;
 font-family: var(--font-primary);
 position: relative;
-background-image: ${(props) => (props.weatherModal ? `url(${weatherBackground})` : null)};
-background-size: cover;
-background-repeat: no-repeat;
-opacity: ${(props) => (props.weatherModal ? "1" : "0")};
-transition: all 2s ease-in-out;
 `
 
 export const WeatherVideo = styled.video`
@@ -46,6 +41,11 @@ animation-name: ${delayLoad};
 animation-duration: 1s;
 background-color: transparent;
 color: ${(props) => (props.light ? "white" : "black")};
+background-image: ${(props) => (props.weatherModal ? `url(${weatherBackground})` : null)};
+background-size: cover;
+background-repeat: no-repeat;
+opacity: ${(props) => (props.weatherModal ? "1" : "0")};
+transition: opacity 2s ease-in-out;
 `
 
 export const ButtonWrapper = styled.div`
@@ -92,23 +92,33 @@ export const WeatherSearchWrapper = styled.div`
     justify-content: start;
 `
 export const WeatherSearchInput = styled.input`
+    height: 3.25rem;
     padding: 0.75rem;
     font-size: 1.25rem;
+    border-radius: 3px;
     width: 75%;
+    margin: 0 0.25rem;
 `
 export const WeatherSearchSubmit = styled.button`
-    padding: 0.75rem;
+    height: 3.25rem;
+    width: 4.75rem;
+    border-radius: 3px;
     margin: 0 0.25rem;
     font-size: 1.25rem;
     cursor: pointer;
+    background-color: var(--theme-secondary);
 `
 export const WeatherSearchHome = styled.button`
-    padding: 0.25rem;
-    background-color: transparent;
+    height: 3.25rem;
+    width: 3.25rem;
     border: none;
+    background-color: transparent;
     margin: 0 0.25rem;
     cursor: pointer;
-    font-size: 2.25rem;
+    font-size: 1.50rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 /** LOCATIONDATE.JS **/
@@ -127,7 +137,7 @@ export const LocationDateText = styled.h2`
 /** TEMPERATURE.JS **/
 export const TemperatureWrapper = styled.div`
     grid-area: temp;
-    width: 100%;
+    width: 65%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -139,14 +149,12 @@ export const TemperatureH2 = styled.h2`
 `
 export const TemperatureH4 = styled.h4`
 font-size: 1.75rem;
-margin-right: 3.5rem;
 `
 export const TempHighLow = styled.div`
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     width: 100%;
-    padding: 0 1rem;
 `
 export const TempItem = styled.div`
     display: flex;
@@ -162,6 +170,7 @@ export const LocationNameDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: start;
+    margin-top: 1rem;
 `
 export const LocationNameRow = styled.div`
     display: flex;
@@ -182,8 +191,11 @@ export const WeatherSys = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0.25rem 0 0.25rem 0;
+    line-height: 1rem;
 `
 export const SysRow = styled.div`
 display: flex;
@@ -191,18 +203,23 @@ align-items: center;
 justify-content: center;
 width: 100%;
 `
+export const SysRowIcon = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+`
 export const SysItem = styled.div`
 display: inline-flex;
 align-items: center;
 justify-content: center;
-line-height: 4rem;
 `
 export const SysIconSunrise = styled(WiSunrise)`
-font-size: 2.50rem;
+font-size: 3.50rem;
 display: block;
 `
 export const SysIconSunset = styled(WiSunset)`
-font-size: 2.50rem;;
+font-size: 3.50rem;;
 display: block;
 `
 export const SysText = styled.p`
@@ -211,7 +228,7 @@ font-size: 1.75rem;
 export const SysLine = styled.p`
 width: 90%;
 height: 0.15rem;
-margin-top: 0.25rem;
+margin: 0.25rem 0.5rem 0 0.5rem;
 background-color: #000;
 `
 
@@ -222,14 +239,16 @@ export const WeatherCurrent = styled.div`
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 `
 export const WeatherCurrentText = styled.h1`
 font-size: 2.75rem;
 `
-export const WeatherCurrentImg = styled.img`
-height: auto;
-width: 12.75rem;
+export const WeatherIcon = styled.div`
+font-size: 7.75rem;
+display: flex;
+align-items: center;
+justify-content: center;
 `
 
 /** ALT.JS **/

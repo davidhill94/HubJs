@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import background from '../images/background.png';
-import background2 from '../images/background2.png';
 import background3 from '../images/background3.png';
 
 export const Grid = styled.div`
