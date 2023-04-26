@@ -1,3 +1,5 @@
+import { AddToDoBtn, Form, InputOption, InputSelect, InputSelectWrapper, ToDoInput } from "./ToDoStyles";
+
 export const ToDoForm = ({ todos, setTodos, setInputText, inputText, setFilter }) => {
 
     const handleSubmit = e => {
@@ -17,22 +19,22 @@ export const ToDoForm = ({ todos, setTodos, setInputText, inputText, setFilter }
     }
 
   return (
-    <form>
-        <input
+    <Form>
+        <ToDoInput
         type="text"
         placeholder='Add to list'
         value={inputText}
         name="text"
         onChange={handleChange}
-        ></input>
-        <button onClick={handleSubmit}> + </button>
-        <div>
-            <select onChange={handleFilter}>
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="uncompleted">Uncompleted</option>
-            </select>
-        </div>
-    </form>
+        ></ToDoInput>
+        <AddToDoBtn onClick={handleSubmit}> Add </AddToDoBtn>
+        <InputSelectWrapper>
+            <InputSelect onChange={handleFilter}>
+                <InputOption value="all">All</InputOption>
+                <InputOption value="completed">Completed</InputOption>
+                <InputOption value="uncompleted">Uncompleted</InputOption>
+            </InputSelect>
+        </InputSelectWrapper>
+    </Form>
   )
 }

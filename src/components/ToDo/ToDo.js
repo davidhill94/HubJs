@@ -1,5 +1,6 @@
 import React from 'react';
-import { TodoItem, TodoItemCompleted } from './ToDoStyles.js';
+import { ToDoItem, ToDoCompleted, ToDoUncompleted, CompleteBtn, DeleteBtn, ButtonWrapper } from './ToDoStyles.js';
+import { FaCheck, FaTrashAlt } from 'react-icons/fa';
 
 export const ToDo = ({ text, todo, todos, setTodos }) => {
 
@@ -19,14 +20,16 @@ export const ToDo = ({ text, todo, todos, setTodos }) => {
     }
 
   return (
-    <div>
+    <ToDoItem todo={todo}>
         {todo.completed ?
-        <TodoItemCompleted>{text}</TodoItemCompleted>
+        <ToDoCompleted>{text}</ToDoCompleted>
         :
-        <TodoItem>{text}</TodoItem>
+        <ToDoUncompleted>{text}</ToDoUncompleted>
     }
-        <button onClick={handleComplete}>Complete</button>
-        <button onClick={handleDelete}>Delete</button>
-    </div>
+    <ButtonWrapper>
+    <CompleteBtn onClick={handleComplete} todo={todo}><FaCheck /></CompleteBtn>
+        <DeleteBtn onClick={handleDelete}><FaTrashAlt /></DeleteBtn>
+    </ButtonWrapper>
+    </ToDoItem>
   )
 }
