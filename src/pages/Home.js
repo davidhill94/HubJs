@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { News } from '../api/News';
 import { Weather } from '../api/Weather';
 import { ToDo } from '../components/ToDo/ToDoIndex';
-import { Practice } from '../components/Practice/Practice';
 import { ModalButtons } from '../components/ModalButtons';
 import { BottomLeft, BottomRight, CenterDiv, Grid, TopLeft, TopRight } from './HomeStyles';
 import { Welcome } from '../components/Welcome/Welcome';
+import { GameCenter } from '../components/GameCenter/GameCenter';
 
 export const Home = () => {
   const [newsModal, setNewsModal] = useState(false);
   const [toDoModal, setToDoModal] = useState(false);
   const [weatherModal, setWeatherModal] = useState(false);
-  const [practiceModal, setPracticeModal] = useState(false);
+  const [gameModal, setGameModal] = useState(false);
   const [open, setOpen] = useState(false);
   const [hover, setHover] = useState("");
 
@@ -25,30 +25,30 @@ export const Home = () => {
       setWeatherModal(!weatherModal)
       setToDoModal(false)
       setNewsModal(false)
-      setPracticeModal(false)
+      setGameModal(false)
       setOpen(true);
       console.log("WEATHER");
     } else if (name === "news") {
       setNewsModal(!newsModal)
       setToDoModal(false)
       setWeatherModal(false)
-      setPracticeModal(false)
+      setGameModal(false)
       setOpen(true);
       console.log("NEWS");
     } else if (name === "todo") {
       setToDoModal(!toDoModal)
       setNewsModal(false)
       setWeatherModal(false)
-      setPracticeModal(false)
+      setGameModal(false)
       setOpen(true);
       console.log("TODO");
-    } else if (name === "practice") {
-      setPracticeModal(!practiceModal)
+    } else if (name === "game") {
+      setGameModal(!gameModal)
       setToDoModal(false)
       setNewsModal(false)
       setWeatherModal(false)
       setOpen(true);
-      console.log("PRACTICE");
+      console.log("GAME");
     }
     if (name === "weather" & weatherModal) {
       setOpen(false)
@@ -59,7 +59,7 @@ export const Home = () => {
     if (name === "todo" & toDoModal) {
       setOpen(false)
     }
-    if (name === "practice" & practiceModal) {
+    if (name === "game" & gameModal) {
       setOpen(false)
     }
   }
@@ -92,13 +92,13 @@ export const Home = () => {
           open={open}
         ></Weather>
       </BottomLeft>
-      <BottomRight practiceModal={practiceModal} open={open}>
-        <Practice
+      <BottomRight gameModal={gameModal} open={open}>
+        <GameCenter
           handleModal={handleModal}
-          practiceModal={practiceModal}
+          gameModal={gameModal}
           hover={hover}
           open={open}
-        ></Practice>
+        ></GameCenter>
       </BottomRight>
       <CenterDiv open={open}>
         <Welcome />
@@ -109,7 +109,7 @@ export const Home = () => {
         newsModal={newsModal}
         toDoModal={toDoModal}
         weatherModal={weatherModal}
-        practiceModal={practiceModal}
+        gameModal={gameModal}
         hover={hover}
         handleHover={handleHover}
       />

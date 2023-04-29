@@ -55,7 +55,7 @@ cursor: pointer;
 transition: bottom 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
 `
-export const PracticeButton = styled.button`
+export const GameButton = styled.button`
 position: absolute;
 bottom: ${(props) => (props.open ? "2vh" : "25%")};
 right: ${(props) => (props.open ? "2vw" : "25%")};

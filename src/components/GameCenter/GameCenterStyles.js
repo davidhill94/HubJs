@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PracticeContainer = styled.div`
+export const GameCenterContainer = styled.div`
 width: 100%;
     height: 100%;
     transition: all 2s ease;
@@ -28,19 +28,19 @@ bottom: 5%;
 right: 50%;
 transform: translateX(50%);
 font-size: 2rem;
-opacity: ${(props) => (props.hover === "practice" && props.practiceModal === false ? "1" : "0")};
+opacity: ${(props) => (props.hover === "game" && props.gameModal === false ? "1" : "0")};
 transition: all 0.1s ease;
 `
 
-export const PracticeModal = styled.div`
+export const GameCenterModal = styled.div`
 display: flex;
 width: 100vw;
 height: 100vh;
 background-color: pink;
 z-index: 99;
 position: absolute;
-top: ${(props) => (props.practiceModal ? "0" : "100vh")};
-right: ${(props) => (props.practiceModal ? "0" : "-100vw")};
+top: ${(props) => (props.gameModal ? "0" : "100vh")};
+right: ${(props) => (props.gameModal ? "0" : "-100vw")};
 transition: all 2s ease;
 padding: 6rem;
 `
