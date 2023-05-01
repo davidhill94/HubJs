@@ -5,6 +5,7 @@ import {
   GameCenterModal,
   GameCenterContainer
 } from './GameCenterStyles.js';
+import { GameWrapper } from './GameWrapper.js';
 
 export const GameCenter = ({ gameModal, hover, open }) => {
 
@@ -13,7 +14,9 @@ export const GameCenter = ({ gameModal, hover, open }) => {
       <ButtonWrapper>
       <ButtonText gameModal={gameModal} hover={hover}>Game Center</ButtonText>
       </ButtonWrapper>
-      <GameCenterModal/>
+      <GameCenterModal gameModal={gameModal}>
+        <GameWrapper />
+      </GameCenterModal>
     </GameCenterContainer>
   )
 }
