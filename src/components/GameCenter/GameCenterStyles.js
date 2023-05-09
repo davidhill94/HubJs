@@ -77,6 +77,7 @@ width: 11rem;
 border: 2px solid #000;
 border-radius: 25px;
 margin: 1.25rem 2rem;
+overflow: hidden;
 `
 export const GameLinkWrapper = styled.a`
 display: flex;
@@ -101,6 +102,7 @@ top: 0;
 left: 0;
 opacity: ${(props) => (props.cardHover ? "0.2" : "1")};
 filter: ${(props) => (props.cardHover ? "blur(1px)" : null)}
+border-radius: 25px;
 `
 export const GameText = styled.p`
 font-size: 1.25rem;

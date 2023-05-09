@@ -1,4 +1,5 @@
 import colormerize from '../../images/colormerize_square.png';
+import tictactoe from '../../images/tictactoe.png';
 
 export const GameData = [
     {
@@ -8,8 +9,8 @@ export const GameData = [
     },
     {
         name: "Tic Tac Toe",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
+        img: tictactoe,
+        link: "https://dancing-malasada-fa3516.netlify.app/"
     },
     {
         name: "Rock Paper Scissors",
