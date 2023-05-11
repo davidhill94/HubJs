@@ -1,5 +1,6 @@
 import colormerize from '../../images/colormerize_square.png';
 import tictactoe from '../../images/tictactoe.png';
+import rps from '../../images/rpsbackground.png';
 
 export const GameData = [
     {
@@ -14,32 +15,7 @@ export const GameData = [
     },
     {
         name: "Rock Paper Scissors",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
-    {
-        name: "Minesweeper",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
-    {
-        name: "Wordle",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
-    {
-        name: "Connect4",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
-    {
-        name: "Seven",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
-    {
-        name: "Eight",
-        img: colormerize,
-        link: "https://splendorous-sundae-769eb0.netlify.app"
-    },
+        img: rps,
+        link: "https://rainbow-crisp-cecb77.netlify.app"
+    }
 ]
