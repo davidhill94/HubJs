@@ -100,7 +100,7 @@ width: 11rem;
 position: absolute;
 top: 0;
 left: 0;
-opacity: ${(props) => (props.cardHover ? "0.2" : "1")};
+opacity: ${(props) => (props.cardHover ? "0.1" : "1")};
 filter: ${(props) => (props.cardHover ? "blur(1px)" : null)}
 border-radius: 25px;
 `
