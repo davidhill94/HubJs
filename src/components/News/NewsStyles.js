@@ -156,8 +156,9 @@ justify-content: center;
 overflow: hidden;
 `
 export const ArticleImg = styled.img`
-width: auto;
+width: 24rem;
 height: 14rem;
+object-fit: cover;
 border-radius: 25px 25px 0 0;
 opacity: ${(props) => (props.opacity ? 1 : 0.5)};
 `

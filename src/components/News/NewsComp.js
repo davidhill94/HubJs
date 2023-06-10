@@ -5,6 +5,9 @@ import { Search } from './Search.js';
 
 export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAutoTopic, handleModal, newsModal, open, hover }) => {
 
+    console.log("news:" + news.articles)
+
+
     return (
         <NewsContainer open={open} hover={hover} newsModal={newsModal}>
             <ButtonText newsModal={newsModal} hover={hover}>News</ButtonText>
@@ -18,7 +21,7 @@ export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAu
                 error ?
                 <ErrorMessage>We ran into an error.. Please search something else.</ErrorMessage>
                 :
-                news.totalResults > 0 ?
+                news.totalArticles > 0 ?
                     <NewsContent news={news} />
                     :
                     <NoResultText>Oops..Nothing Found..Search something else!</NoResultText>

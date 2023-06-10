@@ -11,8 +11,7 @@ export const News = ({handleModal, newsModal, open, hover}) => {
 
   const NewsAPIKey = process.env.REACT_APP_NEWS_API_KEY;
 
-  const newsURL = `https://newsapi.org/v2/everything?q=${topic}&language=en&apiKey=${NewsAPIKey}`
-
+  const newsURL = `https://gnews.io/api/v4/search?q=${topic}&lang=en&apikey=${NewsAPIKey}`
 
   const searchTopic = async () => {
     if(topic === ""){
@@ -31,6 +30,7 @@ export const News = ({handleModal, newsModal, open, hover}) => {
         console.error(error);
       }
     }
+    console.log(news)
   }
 
   const handleAutoTopic = () => {

@@ -14,8 +14,8 @@ const NewsArticle = ({ item, index }) => {
   return (
     <ArticleWrapper key={index} onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
       <LinkWrapper href={item.url} target="_blank">
-        {item.urlToImage ?
-        <ArticleImg src={item.urlToImage} alt="No image available" opacity={opacity ? 1 : 0}></ArticleImg>
+        {item.image ?
+        <ArticleImg src={item.image} alt="Article Imagery" opacity={opacity ? 1 : 0}></ArticleImg>
         :
         <ArticleImgEmpty><FaRegImage /></ArticleImgEmpty>
       }
