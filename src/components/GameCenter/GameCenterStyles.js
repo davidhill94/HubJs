@@ -7,7 +7,7 @@ const delayLoad = keyframes`
 `
 
 export const GameCenterContainer = styled.div`
-width: 100%;
+    width: 100%;
     height: 100%;
     transition: all 2s ease;
     display: flex;
@@ -78,6 +78,11 @@ border: 2px solid #000;
 border-radius: 25px;
 margin: 1.25rem 2rem;
 overflow: hidden;
+
+@media screen and (max-width: 525px){
+    height: 7rem;
+    width: 7rem;
+}
 `
 export const GameLinkWrapper = styled.a`
 display: flex;
@@ -93,6 +98,11 @@ overflow: hidden;
 position: relative;
 text-decoration: none;
 color: #000;
+
+@media screen and (max-width: 525px){
+    height: 7rem;
+    width: 7rem;
+}
 `
 export const GameImg = styled.img`
 height: 11rem;
@@ -103,6 +113,11 @@ left: 0;
 opacity: ${(props) => (props.cardHover ? "0.1" : "1")};
 filter: ${(props) => (props.cardHover ? "blur(1px)" : null)}
 border-radius: 25px;
+
+@media screen and (max-width: 525px){
+    height: 7rem;
+    width: 7rem;
+}
 `
 export const GameText = styled.p`
 font-size: 1.25rem;
