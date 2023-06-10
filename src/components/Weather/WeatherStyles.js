@@ -82,6 +82,13 @@ height: 100vh;
     padding: 6rem;
 `
 
+export const CenterText = styled.p`
+position absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+`
+
 /** SEARCH.JS **/
 export const WeatherSearchWrapper = styled.div`
     grid-area: search;

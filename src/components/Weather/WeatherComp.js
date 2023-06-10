@@ -7,7 +7,7 @@ import { Current } from './Current';
 import { LocationName } from './LocationName';
 import { Search } from './Search';
 import { LocationDate } from './LocationDate';
-import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal, WeatherTagContainer } from './WeatherStyles.js';
+import { ButtonText, ButtonWrapper, CenterText, WeatherContainer, WeatherInnerWrapper, WeatherModal, WeatherTagContainer } from './WeatherStyles.js';
 import WeatherTag from './WeatherTag.js';
 
 export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open, location, weatherTag }) => {
@@ -43,10 +43,10 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
         <WeatherInnerWrapper>
         <Search setLocation={setLocation} handleAutoLocation={handleAutoLocation} searchLocation={searchLocation} />
       {loading ?
-        <h3>Loading...</h3>
+        <CenterText>Loading...</CenterText>
         :
         error ?
-          <h3>We are unable to find this location.. Please search again!</h3>
+          <CenterText>We are unable to find this location.. Please search again!</CenterText>
           :
           <>
           <LocationDate weatherModal={weatherModal} weather={weather} convertDate={convertDate} />
