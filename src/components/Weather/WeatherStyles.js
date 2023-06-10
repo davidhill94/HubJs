@@ -21,16 +21,6 @@ font-family: var(--font-primary);
 position: relative;
 `
 
-export const WeatherVideo = styled.video`
-width: 100%;
-height: 100%;
-position: absolute;
-top: 0;
-left: 0;
-object-fit: cover;
-display: ${(props) => (props.weatherModal ? "block" : "none")};
-`
-
 export const WeatherModal = styled.div`
 display: ${(props) => (props.weatherModal ? "flex" : "none")};
 height: 100vh;
@@ -76,10 +66,20 @@ display: grid;
     "sun sun sun"
     "name name name";
     width: 100vw;
-height: 100vh;
+    height: 100vh;
     font-family: var(--font-primary);
     grid-gap: 0.1rem;
-    padding: 6rem;
+    padding: 4rem;
+
+    @media screen and (max-width: 600px){
+        padding 4rem 1rem;
+        grid-template-rows: 20% 20% 25% 25%;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: "search search"
+    "temp current"
+    "sun sun"
+    "alt name";
+    }
 `
 
 export const CenterText = styled.p`
@@ -116,6 +116,10 @@ export const WeatherSearchSubmit = styled.button`
     cursor: pointer;
     background-color: var(--theme-secondary);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    @media screen and (max-width: 600px){
+        display: none;
+    }
 `
 export const WeatherSearchHome = styled.button`
     height: 3.25rem;
@@ -141,6 +145,10 @@ export const LocationDateWrapper = styled.div`
 `
 export const LocationDateText = styled.h2`
     font-size: 1.25rem;
+
+    @media screen and (max-width: 600px){
+        display: none;
+    }
 `
 
 /** TEMPERATURE.JS **/
@@ -152,12 +160,34 @@ export const TemperatureWrapper = styled.div`
     flex-direction: column;
     align-items: start;
     justify-content: center;
+
+    @media screen and (max-width: 600px){
+        align-items: center;
+        width: 90%;
+    }
+    @media screen and (max-width: 600px){
+        width: 100%;
+    }
 `
 export const TemperatureH2 = styled.h2`
     font-size: 6.75rem;
+
+    @media screen and (max-width: 960px){
+        font-size: 4.75rem;
+    }
+    @media screen and (max-width: 600px){
+        font-size: 3.75rem;
+    }
+    @media screen and (max-width: 375px){
+        font-size: 2.75rem;
+    }
 `
 export const TemperatureH4 = styled.h4`
 font-size: 1.75rem;
+
+@media screen and (max-width: 600px){
+        font-size: 1.25rem;
+}
 `
 export const TempHighLow = styled.div`
     display: flex;
@@ -174,24 +204,51 @@ export const TempItem = styled.div`
 /** LOCATIONNAME.JS **/
 export const LocationNameDiv = styled.div`
     grid-area: name;
-    width: 100%;
+    width: 75%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: start;
     margin-top: 1rem;
+
+    @media screen and (max-width: 600px){
+        margin-top: 0;
+    }
 `
 export const LocationNameRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+
+    @media screen and (max-width: 600px){
+        flex-direction: column;
+        align-items: end;
+        margin-left: 1rem;
+        justify-content: start;
+    }
 `
 export const LocationNameText = styled.div`
     font-size: 4.75rem;
+
+    @media screen and (max-width: 960px){
+        font-size: 3.75rem;
+    }
+    @media screen and (max-width: 600px){
+        font-size: 1.75rem;
+    }
+    @media screen and (max-width: 375px){
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
+    }
 `
 export const HomeIcon = styled.p`
     font-size: 1.75rem;
     margin-top: 2.15rem;
+
+    @media screen and (max-width: 600px){
+    margin-top: 1.15rem;
+    }
 `
 
 /** SYS.JS **/
@@ -233,6 +290,13 @@ display: block;
 `
 export const SysText = styled.p`
 font-size: 1.75rem;
+
+@media screen and (max-width: 600px){
+    font-size: 1.5rem;
+}
+@media screen and (max-width: 375px){
+    font-size: 1.25rem;
+}
 `
 export const SysLine = styled.p`
 width: 90%;
@@ -249,15 +313,28 @@ export const WeatherCurrent = styled.div`
     display: flex;
     align-items: center;
     justify-content: start;
+
+    @media screen and (max-width: 600px){
+        flex-direction: column;
+        justify-content: center;
+    }
 `
 export const WeatherCurrentText = styled.h1`
 font-size: 2.75rem;
+
+@media screen and (max-width: 600px){
+        font-size: 2rem;
+}
 `
 export const WeatherIcon = styled.div`
 font-size: 7.75rem;
 display: flex;
 align-items: center;
 justify-content: center;
+
+@media screen and (max-width: 600px){
+        font-size: 5rem;
+}
 `
 
 /** ALT.JS **/
@@ -269,23 +346,50 @@ export const AltDetailsWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 600px){
+        justify-content: start;
+        align-items: start;
+    }
 `
 export const Row = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-evenly;
+
+@media screen and (max-width: 960px){
+    flex-direction: column;
+    margin-left: 2rem;
+}
+@media screen and (max-width: 600px){
+    margin-left: 0.5rem;
+    line-height: 0;
+}
+
 `
 export const AltRow = styled.div`
     display: flex;
     width: 10rem;
     align-items: center;
     justify-content: start;
+
+    @media screen and (max-width: 600px){
+        width: 6rem;
+    }
 `
 export const AltRowH2 = styled.h2`
     font-size: 1.25rem;
+
+    @media screen and (max-width: 600px){
+        font-size: 1rem;
+    }
 `
 export const AltIcon = styled.p`
     font-size: 3.75rem;
+
+    @media screen and (max-width: 600px){
+        font-size: 2rem;
+    }
 `
 
 /* SETWEATHERMODAL.JS */

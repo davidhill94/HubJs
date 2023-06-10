@@ -56,6 +56,10 @@ export const NewsSearchContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 3rem 6rem 0 6rem;
+
+    @media screen and (max-width: 525px){
+        padding: 6rem 1.5rem 0 1.5rem;
+    }
 `
 export const NewsSearchInput = styled.input`
     height: 3.25rem;
@@ -75,6 +79,10 @@ export const NewsSearchSubmit = styled.button`
     cursor: pointer;
     background-color: var(--theme-secondary);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    @media screen and (max-width: 525px){
+        display: none;
+    }
 `
 export const NewsSearchAuto = styled.button`
     height: 3.25rem;
@@ -115,6 +123,7 @@ overflow-x: hidden;
 width: 100%;
 scroll-behavior: smooth;
 padding: 0 2rem 0 2rem;
+background-color: pink;
 `
 /* NEWSARTICLE.JS */
 export const ArticleWrapper = styled.div`
@@ -130,6 +139,11 @@ position: relative;
 transform: none;
 opacity: 1;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+@media screen and (max-width: 525px){
+    height: 20rem;
+    min-width: 20rem;
+}
 `
 export const LinkWrapper = styled.a`
 display: flex;
@@ -145,6 +159,11 @@ overflow: hidden;
 z-index: 2;
 text-decoration: none;
 color: #000;
+
+@media screen and (max-width: 525px){
+    height: 20rem;
+    min-width: 20rem;
+}
 `
 export const ArticleTitle = styled.h2`
 font-size: 1rem;
