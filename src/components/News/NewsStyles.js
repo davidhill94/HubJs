@@ -64,6 +64,7 @@ export const NewsSearchInput = styled.input`
     border-radius: 3px;
     width: 75%;
     margin: 0 0.25rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `
 export const NewsSearchSubmit = styled.button`
     height: 3.25rem;
@@ -73,6 +74,7 @@ export const NewsSearchSubmit = styled.button`
     font-size: 1.25rem;
     cursor: pointer;
     background-color: var(--theme-secondary);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 `
 export const NewsSearchAuto = styled.button`
     height: 3.25rem;
