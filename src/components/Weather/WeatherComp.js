@@ -8,7 +8,6 @@ import { LocationName } from './LocationName';
 import { Search } from './Search';
 import { LocationDate } from './LocationDate';
 import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal } from './WeatherStyles.js';
-import { WeatherVideos } from './WeatherVideos.js';
 
 export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open }) => {
 
