@@ -8,6 +8,7 @@ export const News = ({handleModal, newsModal, open, hover}) => {
   const [autoTopic, setAutoTopic] = useState("")
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [newsTag, setNewsTag] = useState(false);
 
   const NewsAPIKey = process.env.REACT_APP_NEWS_API_KEY;
 
@@ -35,7 +36,13 @@ export const News = ({handleModal, newsModal, open, hover}) => {
 
   const handleAutoTopic = () => {
     localStorage.setItem("autoTopic", JSON.stringify(topic));
+    setNewsTag(true);
+    const timer = setTimeout(() => {
+      setNewsTag(false);
+    }, 4000);
+    return () => clearTimeout(timer);
   }
+
 
   const getAutoTopic = () => {
     if (localStorage.getItem("autoTopic") === null) {
@@ -54,6 +61,6 @@ export const News = ({handleModal, newsModal, open, hover}) => {
   }, [autoTopic])
 
   return (
-    <NewsComp news={news} topic={topic} setTopic={setTopic} searchTopic={searchTopic} loading={loading} handleAutoTopic={handleAutoTopic} error={error} handleModal={handleModal} newsModal={newsModal} open={open} hover={hover}/>
+    <NewsComp news={news} topic={topic} setTopic={setTopic} searchTopic={searchTopic} loading={loading} handleAutoTopic={handleAutoTopic} error={error} handleModal={handleModal} newsModal={newsModal} open={open} hover={hover} newsTag={newsTag}/>
   )
 }

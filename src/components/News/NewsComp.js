@@ -2,14 +2,16 @@ import React from 'react';
 import NewsContent from './NewsContent.js';
 import { ArticleTitle, ButtonText, ErrorMessage, LoadingText, NewsContainer, NewsInnerContainer, NewsModal, NewsModalWrapper, NoResultText, ResultsDiv, SearchInput, SearchSubmit, SetAutoButton} from './NewsStyles.js';
 import { Search } from './Search.js';
+import SetHomeModal from './SetHomeModal.js';
 
-export const NewsComp = ({ loading, error, setTopic, news, searchTopic, handleAutoTopic, handleModal, newsModal, open, hover }) => {
+export const NewsComp = ({ loading, error, setTopic, topic, news, searchTopic, handleAutoTopic, handleModal, newsModal, open, hover, newsTag }) => {
 
     console.log("news:" + news.articles)
 
 
     return (
         <NewsContainer open={open} hover={hover} newsModal={newsModal}>
+            <SetHomeModal newsTag={newsTag} topic={topic} newsModal={newsModal}/>
             <ButtonText newsModal={newsModal} hover={hover}>News</ButtonText>
             <NewsModal newsModal={newsModal}>
                 <NewsModalWrapper newsModal={newsModal}>

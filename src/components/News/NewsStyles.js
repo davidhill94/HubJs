@@ -195,8 +195,24 @@ opacity: 0.5;
 }
 `
 
-
-
 export const NoResultText = styled.h3`
 font-size: 1rem;
+`
+
+/* SET HOME MODAL */
+export const HomeModalContainer = styled.div`
+width: 300px;
+height: 50px;
+background-color: var(--theme-secondary);
+position: absolute;
+left: ${(props) => (props.newsTag ? "-1%" : "-50%")};
+top: 5%;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 3px;
+border: 2px solid #000;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+transition: all 1s ease;
 `
