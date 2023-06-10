@@ -9,6 +9,7 @@ export const Weather = ({handleModal, weatherModal, hover, open}) => {
     const [location, setLocation] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    const [weatherTag, setWeatherTag] = useState(false);
 
     const weatherAPIKey = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -35,7 +36,12 @@ export const Weather = ({handleModal, weatherModal, hover, open}) => {
 
     const handleAutoLocation = (e) => {
         localStorage.setItem("autoLocation", JSON.stringify(location));
-        setAutoLocation(location);    
+        setAutoLocation(location);  
+        setWeatherTag(true);  
+        const timer = setTimeout(() => {
+            setWeatherTag(false);
+          }, 4000);
+          return () => clearTimeout(timer);
     }
 
     //Retrieve Local Data and set AutoLocation State to Local Storage Data
@@ -56,6 +62,6 @@ export const Weather = ({handleModal, weatherModal, hover, open}) => {
     }, [autoLocation])
 
   return (
-    <WeatherComp location={location} weather={weather} setLocation={setLocation} searchLocation={searchLocation} handleAutoLocation={handleAutoLocation} loading={loading} error={error} autoLocation={autoLocation} handleModal={handleModal} weatherModal={weatherModal} hover={hover} open={open}/>
+    <WeatherComp location={location} weather={weather} setLocation={setLocation} searchLocation={searchLocation} handleAutoLocation={handleAutoLocation} loading={loading} error={error} autoLocation={autoLocation} handleModal={handleModal} weatherModal={weatherModal} hover={hover} open={open} weatherTag={weatherTag}/>
   )
 }

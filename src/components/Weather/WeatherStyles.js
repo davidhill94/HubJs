@@ -280,3 +280,23 @@ export const AltRowH2 = styled.h2`
 export const AltIcon = styled.p`
     font-size: 3.75rem;
 `
+
+/* SETWEATHERMODAL.JS */
+export const WeatherTagContainer = styled.div`
+width: auto;
+height: 50px;
+padding: 0 1.5rem;
+background-color: var(--theme-secondary);
+position: absolute;
+left: ${(props) => (props.weatherTag ? "-1%" : "-50%")};
+color: #000;
+top: 5%;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 3px;
+border: 2px solid #000;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+transition: all 1s ease;
+`

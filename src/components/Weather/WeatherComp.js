@@ -7,9 +7,10 @@ import { Current } from './Current';
 import { LocationName } from './LocationName';
 import { Search } from './Search';
 import { LocationDate } from './LocationDate';
-import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal } from './WeatherStyles.js';
+import { ButtonText, ButtonWrapper, WeatherContainer, WeatherInnerWrapper, WeatherModal, WeatherTagContainer } from './WeatherStyles.js';
+import WeatherTag from './WeatherTag.js';
 
-export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open }) => {
+export const WeatherComp = ({ loading, error, setLocation, weather, searchLocation, handleAutoLocation, autoLocation, weatherModal, handleModal, hover, open, location, weatherTag }) => {
 
   const [light, setLight] = useState(false);
 
@@ -34,6 +35,7 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
   
   return (
     <WeatherContainer hover={hover} open={open} weatherModal={weatherModal}>
+      <WeatherTag weatherTag={weatherTag} weatherModal={weatherModal} location={location}/>
       <ButtonWrapper>
       <ButtonText weatherModal={weatherModal} hover={hover}>Weather</ButtonText>
       </ButtonWrapper>
