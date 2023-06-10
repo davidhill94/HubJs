@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaCloudSun, FaQuestionCircle, FaRegListAlt, FaRegNewspaper } from 'react-icons/fa';
-import { NewsButton, PracticeButton, ToDoButton, WeatherButton } from './ModalButtonsStyles';
+import { FaCloudSun, FaGamepad, FaRegListAlt, FaRegNewspaper } from 'react-icons/fa';
+import { NewsButton, GameButton, ToDoButton, WeatherButton } from './ModalButtonsStyles';
 import { TiArrowBack } from 'react-icons/ti'
 
-export const ModalButtons = ({handleModal, open, newsModal, toDoModal, weatherModal, practiceModal, handleHover, hover}) => {
+export const ModalButtons = ({handleModal, open, newsModal, toDoModal, weatherModal, gameModal, handleHover, hover}) => {
 
   return (
     <div>
@@ -30,13 +30,13 @@ export const ModalButtons = ({handleModal, open, newsModal, toDoModal, weatherMo
           <FaCloudSun />
           }
           </WeatherButton>
-        <PracticeButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("practice")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("practice")}>
-        {open & practiceModal ?
+        <GameButton weatherModal={weatherModal} hover={hover} onMouseEnter={() => handleHover("game")} onMouseLeave={() => handleHover("")} open={open} onClick={() => handleModal("game")}>
+        {open & gameModal ?
           <TiArrowBack />
           :
-          <FaQuestionCircle />
+          <FaGamepad />
           }
-          </PracticeButton>
+          </GameButton>
     </div>
   )
 }

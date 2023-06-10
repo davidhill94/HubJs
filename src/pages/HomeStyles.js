@@ -38,8 +38,8 @@ export const BottomLeft = styled.div`
     left: 0;
   `
 export const BottomRight = styled.div`
-  width: ${(props) => (!props.practiceModal & props.open ? "0vw" : props.practiceModal & props.open ? "100vw" : "50vw")};
-  height: ${(props) => (!props.practiceModal & props.open ? "0vh" : props.practiceModal & props.open ? "100vh" : "50vh")};
+  width: ${(props) => (!props.gameModal & props.open ? "0vw" : props.gameModal & props.open ? "100vw" : "50vw")};
+  height: ${(props) => (!props.gameModal & props.open ? "0vh" : props.gameModal & props.open ? "100vh" : "50vh")};
     transition: all 1s ease;
     position: absolute;
     bottom: 0;
