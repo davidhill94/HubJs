@@ -72,13 +72,18 @@ display: grid;
     padding: 4rem;
 
     @media screen and (max-width: 600px){
-        padding 4rem 1rem;
-        grid-template-rows: 20% 20% 25% 25%;
+        padding 4rem 3rem;
+        grid-template-rows: 20% 20% 20% 20%;
         grid-template-columns: 50% 50%;
         grid-template-areas: "search search"
     "temp current"
     "sun sun"
     "alt name";
+    }
+
+    @media screen and (max-width: 325px){
+        padding 4rem 1.5rem;
+        grid-template-rows: 20% 25% 25% 20%;
     }
 `
 
@@ -162,11 +167,12 @@ export const TemperatureWrapper = styled.div`
     justify-content: center;
 
     @media screen and (max-width: 600px){
-        align-items: center;
+        align-items: start;
         width: 90%;
     }
     @media screen and (max-width: 600px){
         width: 100%;
+        justify-content: start;
     }
 `
 export const TemperatureH2 = styled.h2`
@@ -194,6 +200,10 @@ export const TempHighLow = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
+    @media screen and (max-width: 600px){
+        width: 60%;
+    }
 `
 export const TempItem = styled.div`
     display: flex;
@@ -213,6 +223,8 @@ export const LocationNameDiv = styled.div`
 
     @media screen and (max-width: 600px){
         margin-top: 0;
+        width: 100%;
+        justify-content: end;
     }
 `
 export const LocationNameRow = styled.div`
@@ -262,6 +274,10 @@ export const WeatherSys = styled.div`
     justify-content: center;
     margin: 0.25rem 0 0.25rem 0;
     line-height: 1rem;
+
+    @media screen and (max-width: 600px){
+        justify-content: start;
+    }
 `
 export const SysRow = styled.div`
 display: flex;
@@ -313,10 +329,10 @@ export const WeatherCurrent = styled.div`
     display: flex;
     align-items: center;
     justify-content: start;
-
     @media screen and (max-width: 600px){
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
+        align-items: end;
     }
 `
 export const WeatherCurrentText = styled.h1`
@@ -362,7 +378,7 @@ justify-content: space-evenly;
     margin-left: 2rem;
 }
 @media screen and (max-width: 600px){
-    margin-left: 0.5rem;
+    margin-left: 0rem;
     line-height: 0;
 }
 
