@@ -299,4 +299,5 @@ border-radius: 3px;
 border: 2px solid #000;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 transition: all 1s ease;
+opacity: ${(props) => (props.weatherTag ? "1" : "0")};
 `
