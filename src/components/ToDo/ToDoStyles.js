@@ -63,15 +63,27 @@ justify-content: start;
 height: 100vh;
 width: 100%;
 padding: 6rem;
+
+@media screen and (max-width: 525px){
+    padding: 4rem;
+}
 `
 export const ToDoTitle = styled.h1`
 font-size: 2.25rem;
 margin: 1rem;
+
+@media screen and (max-width: 525px){
+    font-size: 1.5rem;
+}
 `
 
 /*  ToDoForm.js */
 export const Form = styled.form`
 display: flex;
+
+@media screen and (max-width: 525px){
+    flex-direction: row-reverse;
+}
 `
 export const ToDoInput = styled.input`
 height: 3.25rem;
@@ -91,6 +103,10 @@ font-size: 1.25rem;
 cursor: pointer;
 background-color: var(--theme-secondary);
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+@media screen and (max-width: 525px){
+    font-size: 1rem;
+}
 `
 export const InputSelectWrapper = styled.div`
 display: flex;
@@ -100,9 +116,19 @@ export const InputSelect = styled.select`
 opacity: 1;
 font-size: 1.25rem;
 cursor: pointer;
+
+@media screen and (max-width: 525px){
+    font-size: 1rem;
+    width: 4rem;
+}
 `
 export const InputOption = styled.option`
 font-size: 1.25rem;
+
+@media screen and (max-width: 525px){
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+}
 `
 
 /* ToDoList.js */
