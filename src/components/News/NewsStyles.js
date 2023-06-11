@@ -22,6 +22,14 @@ transform: translateX(50%);
 font-size: 2rem;
 opacity: ${(props) => (props.hover === "news" && props.newsModal === false ? "1" : "0")};
 transition: all 0.1s ease;
+text-align: center;
+
+@media screen and (max-width: 768px){
+    bottom: 10%;
+}
+@media screen and (max-width: 525px){
+    font-size: 1.5rem;
+}
 `
 
 export const NewsModal = styled.div`
@@ -225,7 +233,7 @@ height: 50px;
 padding: 0 1.5rem;
 background-color: var(--theme-secondary);
 position: absolute;
-left: ${(props) => (props.newsTag ? "-1%" : "-50%")};
+left: ${(props) => (props.newsTag ? "-1%" : "-100%")};
 top: 5%;
 z-index: 100;
 display: flex;
@@ -236,4 +244,5 @@ border: 2px solid #000;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 transition: all 1s ease;
 opacity: ${(props) => (props.newsTag ? "1" : "0")};
+pointer-events: ${(props) => (props.newsTag ? "auto" : "none")};
 `

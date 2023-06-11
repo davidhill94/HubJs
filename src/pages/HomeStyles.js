@@ -47,7 +47,7 @@ export const BottomRight = styled.div`
 
   `
 export const CenterDiv = styled.div`
-    width: 25%;
+    width: auto;
     height: 25%;
     background-color: transparent;
     position: absolute;
@@ -56,4 +56,7 @@ export const CenterDiv = styled.div`
     transform: translate(-50%, -50%);
     opacity: ${(props) => (props.open ? "0" : "1")};
     transition: 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `

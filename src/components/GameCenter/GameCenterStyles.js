@@ -36,6 +36,11 @@ transform: translateX(50%);
 font-size: 2rem;
 opacity: ${(props) => (props.hover === "game" && props.gameModal === false ? "1" : "0")};
 transition: all 0.1s ease;
+text-align: center;
+
+@media screen and (max-width: 525px){
+    font-size: 1.5rem;
+}
 `
 
 export const GameCenterModal = styled.div`

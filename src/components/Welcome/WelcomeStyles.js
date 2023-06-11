@@ -7,6 +7,8 @@ justify-content: center;
 text-align: center;
 font-family: var(--font-primary);
 color: var(--theme-tertiary);
+width: auto;
+height: auto;
 `
 
 //WELCOMETIME.JS
@@ -20,6 +22,10 @@ export const WelcomeHeader = styled.h1`
 font-size: 3rem;
 font-family: var(--font-primary);
 white-space: nowrap;
+
+@media screen and (max-width: 525px){
+    font-size: 2rem;
+}
 `
 export const WelcomeInfo = styled.div`
 display: flex;

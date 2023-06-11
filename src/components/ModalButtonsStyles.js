@@ -18,6 +18,13 @@ cursor: pointer;
 z-index: 99;
 transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
+
+@media screen and (max-width: 525px){
+    font-size: ${(props) => (props.open ? "3rem" : "7rem")};
+}
+@media screen and (max-width: 325px){
+    font-size: ${(props) => (props.open ? "2rem" : "5rem")};
+}
 `
 export const ToDoButton = styled.button`
 position: absolute;
@@ -36,6 +43,13 @@ border-radius: 50%;
 cursor: pointer;
 transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
+
+@media screen and (max-width: 525px){
+    font-size: ${(props) => (props.open ? "2.5rem" : "6rem")};
+}
+@media screen and (max-width: 325px){
+    font-size: ${(props) => (props.open ? "1.5rem" : "4rem")};
+}
 `
 export const WeatherButton = styled.button`
 position: absolute;
@@ -54,6 +68,13 @@ border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
+
+@media screen and (max-width: 525px){
+    font-size: ${(props) => (props.open ? "3rem" : "7rem")};
+}
+@media screen and (max-width: 325px){
+    font-size: ${(props) => (props.open ? "2rem" : "5rem")};
+}
 `
 export const GameButton = styled.button`
 position: absolute;
@@ -72,4 +93,11 @@ border-radius: 50%;
 cursor: pointer;
 transition: bottom 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
+
+@media screen and (max-width: 525px){
+    font-size: ${(props) => (props.open ? "3rem" : "7rem")};
+}
+@media screen and (max-width: 325px){
+    font-size: ${(props) => (props.open ? "2rem" : "5rem")};
+}
 `
