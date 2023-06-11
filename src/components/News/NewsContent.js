@@ -18,14 +18,14 @@ const NewsContent = ({ news }) => {
         window.innerWidth > 525 ?
         slider.scrollLeft = slider.scrollLeft + 416
         :
-        slider.scrollLeft = slider.scrollLeft + window.innerWidth
+        slider.scrollLeft = slider.scrollLeft + 320
     }
     const slideRight = () => {
         var slider = document.getElementById("slider");
         window.innerWidth > 525 ?
         slider.scrollLeft = slider.scrollLeft - 416
         :
-        slider.scrollLeft = slider.scrollLeft - window.innerWidth
+        slider.scrollLeft = slider.scrollLeft - 320
     }
 
     return (

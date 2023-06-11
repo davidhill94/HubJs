@@ -131,7 +131,6 @@ overflow-x: hidden;
 width: 100%;
 scroll-behavior: smooth;
 padding: 0 2rem 0 2rem;
-background-color: pink;
 `
 /* NEWSARTICLE.JS */
 export const ArticleWrapper = styled.div`
@@ -149,8 +148,8 @@ opacity: 1;
 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
 @media screen and (max-width: 525px){
-    height: 20rem;
-    min-width: 20rem;
+    height: 18rem;
+    min-width: 18rem;
 }
 `
 export const LinkWrapper = styled.a`
@@ -169,8 +168,8 @@ text-decoration: none;
 color: #000;
 
 @media screen and (max-width: 525px){
-    height: 20rem;
-    min-width: 20rem;
+    height: 18rem;
+    min-width: 18rem;
 }
 `
 export const ArticleTitle = styled.h2`
@@ -188,6 +187,10 @@ height: 14rem;
 object-fit: cover;
 border-radius: 25px 25px 0 0;
 opacity: ${(props) => (props.opacity ? 1 : 0.5)};
+
+@media screen and (max-width: 525px){
+    width: 18rem;
+}
 `
 export const ArticleImgEmpty = styled.div`
 display: flex;
