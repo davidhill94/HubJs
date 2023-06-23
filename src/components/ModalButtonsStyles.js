@@ -19,10 +19,13 @@ z-index: 99;
 transition: top 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
 
-@media screen and (max-width: 525px){
+@media screen and (max-width: 960px){
+    font-size: ${(props) => (props.open ? "3.5rem" : "8rem")};
+}
+@media screen and (max-width: 768px){
     font-size: ${(props) => (props.open ? "3rem" : "7rem")};
 }
-@media screen and (max-width: 325px){
+@media screen and (max-width: 550px){
     font-size: ${(props) => (props.open ? "2rem" : "5rem")};
 }
 `
@@ -44,10 +47,13 @@ cursor: pointer;
 transition: top 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
 
-@media screen and (max-width: 525px){
+@media screen and (max-width: 960px){
+    font-size: ${(props) => (props.open ? "3rem" : "7rem")};
+}
+@media screen and (max-width: 768px){
     font-size: ${(props) => (props.open ? "2.5rem" : "6rem")};
 }
-@media screen and (max-width: 325px){
+@media screen and (max-width: 550px){
     font-size: ${(props) => (props.open ? "1.5rem" : "4rem")};
 }
 `
@@ -69,10 +75,13 @@ cursor: pointer;
 transition: bottom 1s, left 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
 
-@media screen and (max-width: 525px){
+@media screen and (max-width: 960px){
+    font-size: ${(props) => (props.open ? "3.5rem" : "8rem")};
+}
+@media screen and (max-width: 768px){
     font-size: ${(props) => (props.open ? "3rem" : "7rem")};
 }
-@media screen and (max-width: 325px){
+@media screen and (max-width: 550px){
     font-size: ${(props) => (props.open ? "2rem" : "5rem")};
 }
 `
@@ -94,10 +103,13 @@ cursor: pointer;
 transition: bottom 1s, right 1s, transform 1s, font-size 1s, color 0.05s;
 color: var(--theme-tertiary);
 
-@media screen and (max-width: 525px){
+@media screen and (max-width: 960px){
+    font-size: ${(props) => (props.open ? "3.5rem" : "8rem")};
+}
+@media screen and (max-width: 768px){
     font-size: ${(props) => (props.open ? "3rem" : "7rem")};
 }
-@media screen and (max-width: 325px){
+@media screen and (max-width: 550px){
     font-size: ${(props) => (props.open ? "2rem" : "5rem")};
 }
 `

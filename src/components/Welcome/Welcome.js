@@ -1,11 +1,13 @@
 import React from 'react';
 import { WelcomeContainer } from './WelcomeStyles';
 import { WelcomeTime } from './WelcomeTime';
+import WelcomeLogo from './WelcomeLogo';
 
 export const Welcome = () => {
   return (
     <WelcomeContainer>
-        <WelcomeTime></WelcomeTime>
+      <WelcomeLogo />
+      <WelcomeTime></WelcomeTime>
     </WelcomeContainer>
   )
 }

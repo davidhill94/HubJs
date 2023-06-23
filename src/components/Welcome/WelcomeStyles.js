@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const WelcomeContainer = styled.div`
 display: flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
 text-align: center;
@@ -37,4 +38,20 @@ font-size: 1.25rem;
 `
 export const WelcomeDateDisplay = styled.h3`
 font-size: 1.25rem;
+`
+
+// WELCOMELOGO.JS
+export const Logo = styled.img`
+width: 10rem;
+height: auto;
+
+@media screen and (max-width: 1024px){
+    width: 8rem;
+}
+@media screen and (max-width: 768px){
+    width: 6rem;
+}
+@media screen and (max-width: 550px){
+    width: 4rem;
+}
 `

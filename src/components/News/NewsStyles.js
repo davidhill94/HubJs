@@ -25,7 +25,7 @@ transition: all 0.1s ease;
 text-align: center;
 
 @media screen and (max-width: 768px){
-    bottom: 10%;
+    bottom: 20%;
 }
 @media screen and (max-width: 525px){
     font-size: 1.5rem;
