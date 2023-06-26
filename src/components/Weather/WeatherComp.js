@@ -14,6 +14,7 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
 
   const [light, setLight] = useState(false);
 
+  //Gets time from local timezone
   const convertTime = (time) => {
     const timestamp = time;
     const timezone = weather.timezone;
@@ -26,12 +27,39 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
     return formattedTime + post
   }
 
+  //Converts date into dd/mm/yyyy
   const convertDate = (date) => {
     const dt = date;
     const day = new Date(dt * 1000);
 
     return day.toDateString();
   }
+
+  //Gathers viewport dimensions
+  const getWindowDimensions = () => {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height
+    };
+  };
+
+  //Creates state to store viewport dimensions
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+  window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  console.log(windowDimensions.height)
+
   
   return (
     <WeatherContainer hover={hover} open={open} weatherModal={weatherModal}>
@@ -39,8 +67,8 @@ export const WeatherComp = ({ loading, error, setLocation, weather, searchLocati
       <ButtonWrapper>
       <ButtonText weatherModal={weatherModal} hover={hover}>Weather</ButtonText>
       </ButtonWrapper>
-      <WeatherModal light={light} weatherModal={weatherModal}>
-        <WeatherInnerWrapper>
+      <WeatherModal light={light} weatherModal={weatherModal} height={windowDimensions.height}>
+        <WeatherInnerWrapper height={windowDimensions.height}>
         <Search setLocation={setLocation} handleAutoLocation={handleAutoLocation} searchLocation={searchLocation} />
       {loading ?
         <CenterText>Loading...</CenterText>
