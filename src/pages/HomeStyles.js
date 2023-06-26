@@ -7,7 +7,7 @@ export const Grid = styled.div`
     height: 100vh;
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     background-image: url(${background3});
     background-size: cover;
     background-repeat: no-repeat;

@@ -12,18 +12,17 @@ const delayLoad = keyframes`
 
 export const WeatherContainer = styled.div`
 width: 100%;
-height: 100%;
+min-height: auto;
 display: flex;
 align-items: center;
 justify-content: center;
-overflow: hidden;
 font-family: var(--font-primary);
 position: relative;
 `
 
 export const WeatherModal = styled.div`
 display: ${(props) => (props.weatherModal ? "flex" : "none")};
-height: 100vh;
+min-height: 100vh;
 width: 100vw;
 z-index: 99;
 transition: all 1s ease;
@@ -74,7 +73,7 @@ display: grid;
     "sun sun sun"
     "name name name";
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     font-family: var(--font-primary);
     grid-gap: 0.1rem;
     padding: 4rem;
